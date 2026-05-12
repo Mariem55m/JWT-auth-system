@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <style>
+       
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: #fafafa;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            color: #1a1a1a;
+        }
+
+        .auth-card {
+            background: #ffffff;
+            padding: 3rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.03);
+            border: 1px solid #eaeaea;
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        h1 {
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #111;
+        }
+
+        .user-greeting {
+            color: #666;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            display: block;
+        }
+
+        .btn-primary {
+            background-color: #000;
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background-color: #333;
+            transform: translateY(-1px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: #555;
+            border: 1px solid #ddd;
+        }
+
+        .btn-outline:hover {
+            border-color: #000;
+            color: #000;
+        }
+
+        .btn-danger {
+            color: #dc3545;
+            font-size: 0.9rem;
+            margin-top: 10px;
+        }
+
+        .btn-danger:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="auth-card">
+        <h1>Welcome Home</h1>
+
+        <% if(user) { %>
+            <div class="user-greeting">
+                Hello, <strong><%= user.username %></strong>
+            </div>
+            
+            <div class="nav-links">
+                <a href="/profile" class="btn btn-primary">View Profile</a>
+                <a href="/Logout" class="btn btn-danger">Sign Out</a>
+            </div>
+
+        <% } else { %>
+            <p style="color: #888;">Please manage your account</p>
+            <div class="nav-links">
+                <a href="/login" class="btn btn-primary">Login to Account</a>
+                <a href="/register" class="btn btn-outline">Create New Account</a>
+            </div>
+        <% } %>
+    </div>
+
+</body>
+</html>
